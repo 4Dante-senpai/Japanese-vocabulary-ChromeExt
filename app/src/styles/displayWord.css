@@ -1,0 +1,138 @@
+.displayWord {
+    text-align: center;
+    position: relative;
+}
+
+.wordInfo {
+    width: 100%;
+}
+
+h4 {
+    color: #ff6600; /* Color naranja */
+    font-size: 18px;
+    margin: 5px;
+}
+
+h1 {
+    color: #ff6600; /* Color naranja */
+    font-size: 28px; /* Tamaño del h1 */
+    margin-bottom: 20px; /* Espaciado inferior del h1 */
+    margin-top: 0px;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.wordTranslations {
+    padding: 0.5rem 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.wordPropsKanji {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+p {
+    font-size: 16px;
+    color: #666;
+    margin: 5px;
+}
+
+.meanings {
+    color: #ff6600;
+}
+
+.wordWrapSpanish, .wordWrapCategory, .wordWrapKanji {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.meaningHover {
+    color: #000000;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
+    position: absolute;
+    margin-top: 9px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .2s, visibility .2s;
+    cursor: pointer;
+}
+
+.wordWrapSpanish:hover .meaningHover {
+    visibility: visible;
+    opacity: 1;
+}
+
+.wordWrapCategory:hover .meaningHover {
+    visibility: visible;
+    opacity: 1;
+}
+
+.wordWrapKanji:hover .meaningHover {
+    visibility: visible;
+    opacity: 1;
+}
+
+.nextButton {
+    display: block;
+    margin: 10px auto;
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: #ff9933; /* Naranja claro */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.nextButton:hover {
+    background-color: #ff6600; /* Naranja más oscuro al pasar el ratón */
+}
+
+.specs {
+    font-weight: bold;
+}
+
+.loadingAnimation {
+    width: 50px;
+    height: 50px;
+    border: 6px solid #ccc;
+    border-top: 6px solid #ff6600; /* Naranja */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.needBlur {
+    color: transparent;
+    text-shadow: 0 0 6px #ff6600;
+}

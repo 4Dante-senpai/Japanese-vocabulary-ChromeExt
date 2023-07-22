@@ -1,14 +1,16 @@
-import "./index.css"
+import "./styles/index.css"
 import DisplayWord from "./components/DisplayWord";
 import DisplayConfig from "./components/DisplayConfig";
 import Layout from "./components/Layout";
+import Home from "./pages/home";
 
 function App() {
   return (
-    <div className="bg-slate-600 w-64 h-80 p-4 font-semibold">
+    <div className="app">
         <Layout>
           <DisplayWord/>
           {/* <DisplayConfig/> */}
+          {/* <Home /> */}
         </Layout>
     </div>
   );
