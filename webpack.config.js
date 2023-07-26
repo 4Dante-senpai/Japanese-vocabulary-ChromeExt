@@ -1,6 +1,9 @@
 const path = require("path");
 const HTMLPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin")
+const webpack = require('webpack');
+
+require('dotenv').config({ path: './.env.production.local' });
 
 module.exports = {
     entry: {
@@ -31,9 +34,10 @@ module.exports = {
         ],
     },
     plugins: [
-        // new webpack.DefinePlugin({
-        //     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-        // }),
+        new webpack.DefinePlugin({
+            'process.env': JSON.stringify(process.env),
+        }),
+        // new Dotenv( {systemvars: true}),
         new CopyPlugin({
             patterns: [
                 { from: "manifest.json", to: "../manifest.json" },

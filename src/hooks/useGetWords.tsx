@@ -4,8 +4,8 @@ import apiWordsRandom from "../interfaces/apiWordsRandom";
 import apiWord from "../interfaces/apiWord";
 
 const useGetWords = () => {
-    // const url = `${process.env.REACT_APP_API_URL}/words/random/`
-    const url = "http://4dantesenpai.servehttp.com:20794/v1/words/random/"
+    const url = `${process.env.REACT_APP_API_URL}/words/random/`
+    // const url = "http://4dantesenpai.servehttp.com:20794/v1/words/random/"
 
     const [data, setData] = useState<apiWord[]>([]);
     const [loading, setLoading] = useState(true);
