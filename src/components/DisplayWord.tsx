@@ -12,6 +12,8 @@ function DisplayWord() {
     const [arrayWords, setArrayWords] = useState<apiWord[]>([])
     const [showActualWord, setShowActualWord] = useState<boolean>(false)
     const [inputValue, setInputValue] = useState<string>("")
+    const [category, setCategory] = useState<string>("")
+    const [alphabet, setAlphabet] = useState<string>("")
 
     useEffect(() => {
         if (arrayWords.length > 0) {
@@ -21,7 +23,7 @@ function DisplayWord() {
     }, [arrayWords.length])
 
     useEffect(() => {
-        if (indexWord <5) {
+        if (indexWord < arrayWords.length) {
             setActualWord(arrayWords[indexWord])
         } else {
             handleRefetchData()
@@ -44,7 +46,7 @@ function DisplayWord() {
         }
     }, [showActualWord])
 
-    const { data, loading, error, refetchData } = useGetWords('comidas','hiragana');
+    const { data, loading, error, refetchData } = useGetWords('','kanji');
     useEffect(() => {
         setArrayWords(data);
     }, [data]);
