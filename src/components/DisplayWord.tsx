@@ -44,7 +44,7 @@ function DisplayWord() {
         }
     }, [showActualWord])
 
-    const { data, loading, error, refetchData } = useGetWords();
+    const { data, loading, error, refetchData } = useGetWords('comidas','hiragana');
     useEffect(() => {
         setArrayWords(data);
     }, [data]);

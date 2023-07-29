@@ -7,19 +7,6 @@
     width: 100%;
 }
 
-h4 {
-    color: #ff6600; /* Color naranja */
-    font-size: 18px;
-    margin: 5px;
-}
-
-h1 {
-    color: #ff6600; /* Color naranja */
-    font-size: 28px; /* Tamaño del h1 */
-    margin-bottom: 20px; /* Espaciado inferior del h1 */
-    margin-top: 0px;
-}
-
 input {
     width: 80%;
     padding: 10px;

@@ -3,9 +3,19 @@ import { useEffect, useState } from "react";
 import apiWordsRandom from "../interfaces/apiWordsRandom";
 import apiWord from "../interfaces/apiWord";
 
-const useGetWords = () => {
-    const url = `${process.env.REACT_APP_API_URL}/words/random/`
-    // const url = "http://4dantesenpai.servehttp.com:20794/v1/words/random/"
+const useGetWords = ( category:string, abc:string ) => {
+
+    let url:string = ""
+
+    if (category !== undefined && abc !== undefined) {
+        url = `${process.env.REACT_APP_API_URL}/words/${abc}/${category}` 
+    } else if (category !== undefined && abc === undefined) {
+        url = `${process.env.REACT_APP_API_URL}/words/${category}/random` 
+    } else if (category === undefined && abc !== undefined) {
+        url = `${process.env.REACT_APP_API_URL}/words/${abc}/random`
+    } else {
+        url = `${process.env.REACT_APP_API_URL}/words/random/`
+    }
 
     const [data, setData] = useState<apiWord[]>([]);
     const [loading, setLoading] = useState(true);

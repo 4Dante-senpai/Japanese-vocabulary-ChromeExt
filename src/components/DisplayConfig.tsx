@@ -35,7 +35,7 @@ function DisplayConfig() {
                     Categoria
                     <select name="categories" id="categories" className="m-2">
                         <option value="all">Todos</option> 
-                        {   data.map((item, index) => (
+                        {   data.sort().map((item, index) => (
                             <option key={index} value={item}>{item[0].toUpperCase() + item.substring(1)}</option>
                     ))}
                     </select>
