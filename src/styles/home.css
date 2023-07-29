@@ -1,17 +1,6 @@
 .Home {
-    /* max-width: 400px; */
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
-}
-
-h1 {
-    color: #ff6600; /* Color naranja */
-    font-size: 24px;
-    margin-bottom: 30px;
+    position: relative;
 }
 
 button {
@@ -33,9 +22,9 @@ button:hover {
 }
 
 .infoButton {
-    position: absolute; /* Posición absoluta para el botón de información */
-    bottom: 10px;
-    right: 10px;
+    position: fixed; /* Posición absoluta para el botón de información */
+    bottom: 15px;
+    right: 15px;
     width: 40px;
     height: 40px;
     background-color: #ff6600; /* Naranja */
@@ -46,7 +35,17 @@ button:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.infoButton:hover {
+    background-color: #ff9933; /* Naranja más oscuro al pasar el ratón */
+}
+
 .infoIcon {
     font-size: 24px;
     color: #fff;
+    font-style: italic;
+}
+
+#vocabulary-title {
+    margin-bottom: 0px;
+    padding-top: 20px;
 }
