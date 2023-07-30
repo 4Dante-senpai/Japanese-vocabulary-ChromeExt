@@ -3,7 +3,7 @@
     position: relative;
 }
 
-button {
+.homeButton {
     width: 10rem;
     display: block;
     margin: 10px auto;
@@ -17,7 +17,7 @@ button {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-button:hover {
+.homeButton:hover {
     background-color: #ff6600; /* Naranja más oscuro al pasar el ratón */
 }
 
