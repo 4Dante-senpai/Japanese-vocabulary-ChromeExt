@@ -4,7 +4,7 @@
 
 }
 
-button {
+.alertButton {
     width: 8rem;
     display: block;
     margin: 10px auto;

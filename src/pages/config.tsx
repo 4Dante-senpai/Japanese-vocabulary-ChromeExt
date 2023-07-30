@@ -2,7 +2,7 @@ import useGetCategories from "../hooks/useGetCategories";
 import "../styles/alerts.css"
 
 
-const Alerts = ( ) => {
+const Config = ( ) => {
 
         
         const { data, loading, error } = useGetCategories();
@@ -45,32 +45,15 @@ const Alerts = ( ) => {
                         </div>
                     </label>
                 </div>
-                <div>
-                    <label>
-                        <div className="optionContainer">
-                            <p>Intervalo</p>
-                            <select name="intervalo" id="intervalo" className="m-2">
-                                <option value="5m">Cada 5 minutos</option> 
-                                <option value="10m">Cada 10 minutos</option> 
-                                <option value="15m">Cada 15 minutos</option> 
-                                <option value="30m">Cada 30 minutos</option> 
-                                <option value="1h">Cada 1 hora</option> 
-                                <option value="2h">Cada 2 horas</option> 
-                                <option value="3h">Cada 3 horas</option> 
-                                <option value="6h">Cada 6 horas</option> 
-                            </select>
-                        </div>
-                    </label>
-                </div>
 
                 <div className="boxButtons">
-                    <button className="acceptButton alertButton">
+                    <button className="acceptButton">
                         Guardar</button>
-                    <button className="cancelButton alertButton">
+                    <button className="cancelButton">
                         Cancelar</button>
                 </div>
             </div>
     )
 }
 
-export default Alerts;
+export default Config;
