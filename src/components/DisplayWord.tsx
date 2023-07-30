@@ -1,26 +1,35 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import useGetWords from "../hooks/useGetWords";
 import apiWord from "../interfaces/apiWord";
 import "../styles/displayWord.css"
+import ReturnButton from "./ReturnButton";
 
 
 
 function DisplayWord() {
-
     const [indexWord, setIndexWord] = useState<number>(0)
     const [actualWord, setActualWord] = useState<apiWord>()
     const [arrayWords, setArrayWords] = useState<apiWord[]>([])
     const [showActualWord, setShowActualWord] = useState<boolean>(false)
     const [inputValue, setInputValue] = useState<string>("")
-    const [category, setCategory] = useState<string>("")
-    const [alphabet, setAlphabet] = useState<string>("")
+    const location = useLocation();
+    const state = location.state;
 
     useEffect(() => {
         if (arrayWords.length > 0) {
-            console.log('arrayWords', arrayWords)
             setActualWord(arrayWords[indexWord])
         }
     }, [arrayWords.length])
+
+    useEffect(() =>{
+        if (actualWord !== undefined) {
+            if (state.alphabet === 'hiragana') {
+                document.getElementById('spanPhonetics')?.classList.remove('needBlur')
+                document.getElementById('meaningHoverKanji')!.style.display = "none"
+            }
+        }
+    }, [actualWord])
 
     useEffect(() => {
         if (indexWord < arrayWords.length) {
@@ -28,15 +37,15 @@ function DisplayWord() {
         } else {
             handleRefetchData()
             setIndexWord(0)
-            console.log('arrayWords', arrayWords)
         }
     }, [indexWord])
 
     useEffect(() => {
+
         if (showActualWord) {
-            const phonetic =  document.getElementById('spanPhonetics') as HTMLInputElement;
-            const category = document.getElementById('meaningCategory') as HTMLInputElement;
-            const spanish = document.getElementById('meaningSpanish') as HTMLInputElement;
+            const phonetic =  document.getElementById('spanPhonetics') as HTMLElement;
+            const category = document.getElementById('meaningCategory') as HTMLElement;
+            const spanish = document.getElementById('meaningSpanish') as HTMLElement;
             phonetic.classList.remove('needBlur')
             category.classList.remove('needBlur')
             spanish.classList.remove('needBlur')
@@ -45,8 +54,8 @@ function DisplayWord() {
             document.getElementById('meaningHoverSpanish')!.style.display = "none"
         }
     }, [showActualWord])
-
-    const { data, loading, error, refetchData } = useGetWords('','kanji');
+    
+    const { data, loading, error, refetchData } = useGetWords(state.category , state.alphabet);
     useEffect(() => {
         setArrayWords(data);
     }, [data]);
@@ -67,16 +76,13 @@ function DisplayWord() {
         setInputValue(chars)
         for (let i = 0; i < chars.length; i++) {
             if (chars.charAt(i).toUpperCase() === actualWord?.pronunciation.charAt(i).toUpperCase()) {
-                console.log('Coninciden los caracteres')
                 input.style.backgroundColor = "#9aedbe";
             } else {
-                console.log('Errrorrr no coinciden')
                 input.style.backgroundColor = "#eda79a";
                 break
             }
         if (chars.toLocaleUpperCase() === actualWord?.pronunciation.toLocaleUpperCase()) {
             setShowActualWord(true)
-            console.log('Completatas la palabra!!')
             input.style.pointerEvents = "none"
             input?.setAttribute("readonly", "")
             }
@@ -128,6 +134,7 @@ function DisplayWord() {
 
     return (
     <div className="displayWord">
+        <ReturnButton />
         <div className="wordInfo"> 
             <h1>¿Qué palabra es?</h1>
             {actualWord?.kanji ? (<h4>Kanji: {actualWord?.kanji}</h4>) : (<h4>Kanji: No tiene</h4>)}
@@ -172,7 +179,6 @@ function DisplayWord() {
             <button className="nextButton" onClick={handleSiguiente}>
                 {showActualWord ? 'Siguiente' : 'Autocompletar'}
             </button>
-            
         </div>
     </div>
     );
