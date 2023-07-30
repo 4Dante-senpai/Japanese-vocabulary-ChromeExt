@@ -29,14 +29,20 @@ code {
 }
 
 h4 {
-  color: #ff6600; /* Color naranja */
+  color: #ff6600;
   font-size: 18px;
   margin: 5px;
 }
 
 h1 {
-  color: #ff6600; /* Color naranja */
-  font-size: 28px; /* Tamaño del h1 */
-  margin-bottom: 20px; /* Espaciado inferior del h1 */
+  color: #ff6600;
+  font-size: 28px; 
+  margin-bottom: 20px;
   margin-top: 0px;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+  display: flex;
 }
