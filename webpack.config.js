@@ -31,13 +31,16 @@ module.exports = {
                     "css-loader"
                 ]
             },
+            {
+                test: /\.(png|jp(e*)g|svg|gif)$/,
+                type: "asset/resource",
+            },
         ],
     },
     plugins: [
         new webpack.DefinePlugin({
             'process.env': JSON.stringify(process.env),
         }),
-        // new Dotenv( {systemvars: true}),
         new CopyPlugin({
             patterns: [
                 { from: "manifest.json", to: "../manifest.json" },
