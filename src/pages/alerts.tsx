@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useGetCategories from "../hooks/useGetCategories";
 import "../styles/alerts.css"
 
@@ -7,7 +8,7 @@ const Alerts = ( ) => {
         
         const { data, loading, error } = useGetCategories();
         if (loading) {
-            return <div>Loading...</div>;
+            return <div className="loadingContainer"><div className="loadingAnimation"></div></div>;
         }
 
         if (error) {
@@ -20,6 +21,12 @@ const Alerts = ( ) => {
                 <div className="tit"></div>
                 <h4>¿Qué tipo de palabras quieres recibir?</h4>
                 <div className="labelContainer">
+                    <label>
+                        <div className="optionContainer">
+                            <p>Activar alertas</p>
+                            <input type="checkbox" id="activeAlerts" />
+                        </div>
+                    </label>
                     <label>
                         <div className="optionContainer">
                             <p>Tipo de escritura</p>
@@ -63,11 +70,19 @@ const Alerts = ( ) => {
                     </label>
                 </div>
 
-                <div className="boxButtons">
+                <div>
+                    <h1 id="upcoming">PROXIMAMENTE</h1>
+                </div>
+
+                <div className="boxButtonsAlerts">
+                    <Link to={"/"}>
+                        <button className="cancelButton alertButton">
+                            Cancelar</button>
+                    </Link>
+                    <Link to={"/"}>
                     <button className="acceptButton alertButton">
                         Guardar</button>
-                    <button className="cancelButton alertButton">
-                        Cancelar</button>
+                    </Link>
                 </div>
             </div>
     )
