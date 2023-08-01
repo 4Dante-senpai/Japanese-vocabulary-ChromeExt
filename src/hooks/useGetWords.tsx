@@ -18,18 +18,22 @@ const useGetWords = ( category:string, alphabet:string ) => {
     }
 
     const [data, setData] = useState<apiWord[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState('');
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string>('');
 
     const fetchData = async () => {
-    try {
-        const response: AxiosResponse<apiWordsRandom> = await axios.get(url);
-        setData(response.data.words);
-    } catch (err: any) {
-        setError(err.message);
-    } finally {
-        setLoading(false);
-    }
+
+        await axios.get(url, {timeout:5000})
+            .then((res: AxiosResponse<apiWordsRandom>) => res.data)
+            .then((data) => setData(data.words))
+            .catch(function(err: any) {
+                if (err.response?.data.message){
+                    setError(err.response?.data.message)
+                } else {
+                    setError(err.message)
+                }
+            })
+            .finally(() => setLoading(false))
     };
 
     useEffect(() => {

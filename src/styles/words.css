@@ -1,4 +1,4 @@
-.displayWord {
+.words {
     text-align: center;
     position: relative;
 }
@@ -112,22 +112,16 @@ p {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 } */
 
+.errorDiv {
+    padding: 20px;
+}
+
 .nextButton:hover {
     background-color: #ff6600; /* Naranja más oscuro al pasar el ratón */
 }
 
 .specs {
     font-weight: bold;
-}
-
-.loadingAnimation {
-    width: 50px;
-    height: 50px;
-    border: 6px solid #ccc;
-    border-top: 6px solid #ff6600; /* Naranja */
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin: auto;
 }
 
 @keyframes spin {

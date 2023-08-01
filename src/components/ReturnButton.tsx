@@ -1,13 +1,16 @@
-import {ReactComponent as ReturnArrow} from '../assets/return-arrow.svg';
 import { Link } from 'react-router-dom';
+import Icon from "../assets/return-arrow.svg"
 import "../styles/returnButton.css"
 
 const ReturnButton = ( ) => {
     return (
-        <div className='returnButton'>
+        <div>
             <Link to={'/'}>
-                <ReturnArrow />
+                <div className='returnButton'>
+                <img src={Icon} alt='returnButton' />
+                </div>
             </Link>
+            
         </div>
     )
 }

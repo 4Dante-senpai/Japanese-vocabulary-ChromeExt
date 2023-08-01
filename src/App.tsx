@@ -1,20 +1,19 @@
 import "./styles/index.css"
-import DisplayWord from "./components/DisplayWord";
-import DisplayConfig from "./components/DisplayConfig";
+import Words from "./pages/words";
 import Layout from "./components/Layout";
 import Home from "./pages/home";
 import Alerts from "./pages/alerts";
 import Config from "./pages/config";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
     <div className="app">
-      <Router>
+      <Router >
         <Layout>
-          <Routes>
+          <Routes >
             <Route path="/" element={ <Home /> } />
-            <Route path="/words" element={ <DisplayWord /> } />
+            <Route path="/words" element={ <Words /> } />
             <Route path="/alers" element={ <Alerts /> } />
             <Route path="/config" element={ <Config /> } />
           </Routes>

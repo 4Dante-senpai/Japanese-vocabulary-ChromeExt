@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import useGetWords from "../hooks/useGetWords";
 import apiWord from "../interfaces/apiWord";
-import "../styles/displayWord.css"
-import ReturnButton from "./ReturnButton";
+import "../styles/words.css"
+import ReturnButton from "../components/ReturnButton";
+import LoadingFetch from "../components/LoadingFetch";
+import ErrorFetch from "../components/ErrorFetch";
 
 
 
-function DisplayWord() {
+function Words() {
     const [indexWord, setIndexWord] = useState<number>(0)
     const [actualWord, setActualWord] = useState<apiWord>()
     const [arrayWords, setArrayWords] = useState<apiWord[]>([])
@@ -16,6 +18,15 @@ function DisplayWord() {
     const location = useLocation();
     const state = location.state;
 
+    const { data, loading, error, refetchData } = useGetWords(state.category , state.alphabet);
+    useEffect(() => {
+        setArrayWords(data);
+    }, [data]);
+    const handleRefetchData = () => {
+        refetchData();
+    };
+
+
     useEffect(() => {
         if (arrayWords.length > 0) {
             setActualWord(arrayWords[indexWord])
@@ -23,13 +34,23 @@ function DisplayWord() {
     }, [arrayWords.length])
 
     useEffect(() =>{
-        if (actualWord !== undefined) {
+        console.log('error', error)
+        if (actualWord !== undefined && !loading) {
             if (state.alphabet === 'hiragana') {
-                document.getElementById('spanPhonetics')?.classList.remove('needBlur')
-                document.getElementById('meaningHoverKanji')!.style.display = "none"
+                    document.getElementById('spanPhonetics')?.classList.remove('needBlur')
+                    document.getElementById('meaningHoverKanji')!.style.display = "none"
             }
         }
     }, [actualWord])
+
+    useEffect(() => {
+        // This handle the first refetch for higarana alphabet selection
+        if (!loading && state.alphabet === 'hiragana' && !error) {
+            document.getElementById('spanPhonetics')?.classList.remove('needBlur')
+            document.getElementById('meaningHoverKanji')!.style.display = "none"
+        }
+
+    }, [loading])
 
     useEffect(() => {
         if (indexWord < arrayWords.length) {
@@ -55,24 +76,11 @@ function DisplayWord() {
         }
     }, [showActualWord])
     
-    const { data, loading, error, refetchData } = useGetWords(state.category , state.alphabet);
-    useEffect(() => {
-        setArrayWords(data);
-    }, [data]);
-    const handleRefetchData = () => {
-        refetchData();
-    };
-    if (loading) {
-        return <div className="loadingAnimation"></div>
-    }
-    if (error) {
-        return <div>Error: {error}</div>;
-    }
+
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const input = document.getElementById('validate') as HTMLInputElement;
         let chars = event.target.value
-        console.log(chars);
         setInputValue(chars)
         for (let i = 0; i < chars.length; i++) {
             if (chars.charAt(i).toUpperCase() === actualWord?.pronunciation.charAt(i).toUpperCase()) {
@@ -132,8 +140,15 @@ function DisplayWord() {
         }
     }
 
+    if (loading) {
+        return <LoadingFetch />
+    }
+    if (error) {
+        return <ErrorFetch err={error} alphabet={state.alphabet} category={state.category} />
+    }
+
     return (
-    <div className="displayWord">
+    <div className="words">
         <ReturnButton />
         <div className="wordInfo"> 
             <h1>¿Qué palabra es?</h1>
@@ -184,4 +199,4 @@ function DisplayWord() {
     );
 }
 
-export default DisplayWord;
+export default Words;

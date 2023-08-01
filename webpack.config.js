@@ -33,7 +33,11 @@ module.exports = {
             },
             {
                 test: /\.(png|jp(e*)g|svg|gif)$/,
+                include: path.resolve(__dirname, "src"),
                 type: "asset/resource",
+                generator: {
+                    filename: "assets/[name][ext]",
+                    },
             },
         ],
     },
