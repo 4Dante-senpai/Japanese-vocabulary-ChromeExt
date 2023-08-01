@@ -1,0 +1,23 @@
+.infoButton {
+    position: fixed; 
+    bottom: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background-color: #ff6600; 
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.infoButton:hover {
+    background-color: #ff9933;
+}
+
+.infoIcon {
+    font-size: 24px;
+    color: #fff;
+    font-style: italic;
+}

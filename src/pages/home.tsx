@@ -1,3 +1,4 @@
+import InfoButton from "../components/InfoButton";
 import "../styles/home.css"
 import { Link } from "react-router-dom";
 
@@ -15,11 +16,7 @@ const Home = ( ) => {
             <Link to="/alers">
                 <button className="alertsButton homeButton">Alertas</button>
             </Link>
-            <Link to="/info">
-                <div className="infoButton">
-                    <span className="infoIcon">i</span>
-                </div>
-            </Link>
+            <InfoButton />
         </div>
     )
 }
