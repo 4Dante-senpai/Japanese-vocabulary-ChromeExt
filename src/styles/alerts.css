@@ -1,7 +1,6 @@
 .Alerts {
     text-align: center;
     position: relative;
-
 }
 
 .alertButton {
@@ -16,48 +15,37 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-
-.optionContainer {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
-    width: 90%;
+#activeAlerts {
+    width: 10%;
 }
-
-.optionContainer > select {
-    height: 2rem;
-}
-
-.labelContainer {
-    text-align: center;
-}
-
-label {
-    text-align: -webkit-center;
-}
-
 
 .acceptButton {
     color: #fff;
-    background-color: #66cc66; /* Verde más claro */
+    background-color: #66cc66;
 }
 
 .acceptButton:hover {
-    background-color: #33cc33; /* Verde más oscuro al pasar el ratón */
+    background-color: #33cc33; 
 }
 
 .cancelButton {
-    background-color: #ff9966; /* Beige más fuerte */
+    background-color: #ff9966; 
     color: #000000;
 }
 
 .cancelButton:hover {
-    background-color: #ff6633; /* Beige más oscuro al pasar el ratón */
+    background-color: #ff6633; 
 }
 
-.boxButtons {
-    padding-top: 4rem;
+.boxButtonsAlerts {
+    padding-top: 3.5rem;
     display: flex;
     justify-content: space-around;
+}
+
+#upcoming {
+    position: absolute;
+    margin: auto;
+    left: 0px;
+    right: 0px;
 }

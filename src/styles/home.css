@@ -9,7 +9,7 @@
     margin: 10px auto;
     padding: 15px 30px;
     font-size: 20px;
-    background-color: #ff9933; /* Naranja claro */
+    background-color: #ff9933;
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -18,31 +18,7 @@
 }
 
 .homeButton:hover {
-    background-color: #ff6600; /* Naranja más oscuro al pasar el ratón */
-}
-
-.infoButton {
-    position: fixed; /* Posición absoluta para el botón de información */
-    bottom: 15px;
-    right: 15px;
-    width: 40px;
-    height: 40px;
-    background-color: #ff6600; /* Naranja */
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.infoButton:hover {
-    background-color: #ff9933; /* Naranja más oscuro al pasar el ratón */
-}
-
-.infoIcon {
-    font-size: 24px;
-    color: #fff;
-    font-style: italic;
+    background-color: #ff6600;
 }
 
 #vocabulary-title {

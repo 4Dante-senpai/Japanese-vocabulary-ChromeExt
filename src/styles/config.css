@@ -1,0 +1,59 @@
+.configButton {
+    width: 8rem;
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+.optionContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    margin: 10px 0px;
+}
+
+.optionContainer > select {
+    height: 2rem;
+    border-radius: 5px;
+}
+
+.labelContainer {
+    text-align: center;
+}
+
+label {
+    text-align: -webkit-center;
+}
+
+
+.acceptButton {
+    color: #fff;
+    background-color: #66cc66;
+}
+
+.acceptButton:hover {
+    background-color: #33cc33;
+}
+
+.cancelButton {
+    background-color: #ff9966;
+    color: #000000;
+}
+
+.cancelButton:hover {
+    background-color: #ff6633;
+}
+
+.boxButtonsConfig {
+    padding-top: 9rem;
+    display: flex;
+    justify-content: space-around;
+}
