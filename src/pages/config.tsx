@@ -1,18 +1,33 @@
+import { Link } from "react-router-dom";
 import useGetCategories from "../hooks/useGetCategories";
-import "../styles/alerts.css"
+import "../styles/config.css"
+import { useState } from "react";
 
 
 const Config = ( ) => {
 
+        const [category, setCategory] = useState<string>("")
+        const [alphabet, setalphabet] = useState<string>("")
         
         const { data, loading, error } = useGetCategories();
         if (loading) {
-            return <div>Loading...</div>;
+            return <div className="loadingContainer"><div className="loadingAnimation"></div></div>
         }
 
         if (error) {
             return <div>Error: {error}</div>;
         }
+
+        const handleCategory = () => {
+            const selectCategory = document.getElementById('categoryRef') as HTMLSelectElement
+            setCategory(selectCategory.value)
+        }
+
+        const handleAlphabet = () => {
+            const selectCategory = document.getElementById('alphabetRef') as HTMLSelectElement
+            setalphabet(selectCategory.value)
+        }
+
 
 
         return (
@@ -23,10 +38,10 @@ const Config = ( ) => {
                     <label>
                         <div className="optionContainer">
                             <p>Tipo de escritura</p>
-                            <select name="writing" className="m-2">
-                                <option value="all">Todos</option>
+                            <select name="writing" className="m-2" id="alphabetRef" onChange={handleAlphabet}>
+                                <option value="">Todos</option>
                                 <option value="kanji">Kanji</option>
-                                <option value="higarana">Higarana</option>
+                                <option value="hiragana">Hiragana</option>
                                 <option value="katakana">Katakana</option>
                             </select>
                         </div>
@@ -36,8 +51,8 @@ const Config = ( ) => {
                     <label>
                         <div className="optionContainer">
                             <p>Categoria</p>
-                            <select name="categories" id="categories" className="m-2">
-                                <option value="all">Todos</option> 
+                            <select name="categories" className="m-2" id="categoryRef" onChange={handleCategory}>
+                                <option value="">Todos</option> 
                                 {   data.sort().map((item, index) => (
                                     <option key={index} value={item}>{item[0].toUpperCase() + item.substring(1)}</option>
                             ))}
@@ -46,11 +61,15 @@ const Config = ( ) => {
                     </label>
                 </div>
 
-                <div className="boxButtons">
-                    <button className="acceptButton">
-                        Guardar</button>
-                    <button className="cancelButton">
-                        Cancelar</button>
+                <div className="boxButtonsConfig">
+                    <Link to={"/"}>
+                        <button className="cancelButton configButton">
+                            Cancelar</button>
+                    </Link>
+                    <Link to={"/words"} state={ {'category': category, 'alphabet': alphabet}}>
+                        <button className="acceptButton configButton">
+                            Empezar</button>
+                    </Link>
                 </div>
             </div>
     )
