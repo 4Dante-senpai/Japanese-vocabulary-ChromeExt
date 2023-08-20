@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 import apiCategories from "../interfaces/apiCategories";
 
 const useGetCategories = () => {
-    // const url = `${process.env.REACT_APP_API_URL}/categories/`
-    const url = "http://4dantesenpai.servehttp.com:20794/v1/categories/"
+    const url = `${process.env.REACT_APP_API_URL}/categories/`
 
 
     const [data, setData] = useState<string[]>([]);
