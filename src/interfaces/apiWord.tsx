@@ -6,7 +6,8 @@ interface apiWord {
     english: string,
     spanish: string,
     is_katakana: boolean,
-    category: string
+    category: string,
+    category_spanish: string
 }
 
 export default apiWord;

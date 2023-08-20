@@ -175,7 +175,7 @@ function Words() {
                     </div>
                     <div className="wordsPropsRight">
                         <div className="wordWrapCategory">
-                            <p className="meanings needBlur" id="meaningCategory">{`${actualWord?.category[0].toUpperCase()!}${actualWord?.category.substring(1)!}`}</p>
+                            <p className="meanings needBlur" id="meaningCategory">{`${actualWord?.category_spanish[0].toUpperCase()!}${actualWord?.category_spanish.substring(1)!}`}</p>
                             <p className="meanings meaningHover" id="meaningHoverCategory"
                             onClick={() => {document.getElementById('meaningCategory')?.classList.remove('needBlur')
                                             document.getElementById('meaningHoverCategory')!.style.display = "none"}}
