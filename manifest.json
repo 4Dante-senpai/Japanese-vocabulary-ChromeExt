@@ -1,10 +1,17 @@
 {
   "version": "1.0.0",
   "manifest_version": 3,
-  "name": "Vocabulario japones",
-  "description": "Esto es una pequeña app para practicar vocabulario japones",
+  "name": "Vocabulario japonés",
+  "description": "Esto es una pequeña app para practicar vocabulario japonés",
   "action": {
       "default_popup": "js/index.html",
-      "default_title": "Vocabulario japones"
-  }
+      "default_title": "Vocabulario japonés"
+  },
+  "icons": {
+    "16": "./icons/icon16.png",
+    "32": "./icons/icon32.png",
+    "48": "./icons/icon48.png",
+    "128": "./icons/icon128.png"
+  },
+  "author": "demian.d.duran@gmail.com"
 }
